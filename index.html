@@ -18,7 +18,10 @@
       --blue: #0b5ed7;
       --blue-dark: #073f9e;
       --blue-soft: #e8f1ff;
-      --stage-bg: #0b63ce;
+      --stage-bg: #fbf5e9;
+      --stage-navy: #06265b;
+      --stage-muted: #4f4f4f;
+      --stage-card-shadow: 0 12px 30px rgba(73, 52, 18, 0.12);
       --shadow: 0 18px 42px rgba(7, 43, 105, 0.2);
     }
 
@@ -635,10 +638,10 @@
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.14), transparent 34%),
-        linear-gradient(145deg, rgba(18, 47, 69, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%),
-        var(--stage-bg);
-      color: #ffffff;
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.55) 18%, transparent 42%),
+        radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.62) 0, transparent 34%),
+        linear-gradient(180deg, #fffdf8 0%, var(--stage-bg) 56%, #f6edde 100%);
+      color: var(--stage-navy);
       transition: opacity 260ms ease, visibility 260ms ease;
     }
 
@@ -658,6 +661,7 @@
       display: grid;
       justify-items: center;
       gap: 14px;
+      width: min(680px, calc(100% - 40px));
       padding: 28px;
       text-align: center;
     }
@@ -672,10 +676,10 @@
       width: 96px;
       height: 96px;
       border-radius: 28px;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      color: #ffffff;
-      box-shadow: 0 22px 54px rgba(0, 35, 94, 0.24);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(188, 170, 137, 0.22);
+      color: #2f9663;
+      box-shadow: var(--stage-card-shadow);
       animation: pulse 1.35s ease-in-out infinite;
     }
 
@@ -686,6 +690,7 @@
     }
 
     .loading-title {
+      color: var(--stage-navy);
       font-size: clamp(34px, 8vw, 58px);
       font-weight: 950;
       line-height: 1.2;
@@ -693,7 +698,7 @@
     }
 
     .loading-subtitle {
-      color: rgba(255, 255, 255, 0.84);
+      color: var(--stage-muted);
       font-size: clamp(20px, 4.5vw, 28px);
       font-weight: 850;
     }
@@ -702,19 +707,21 @@
       margin-top: 4px;
       padding: 10px 14px;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      color: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(188, 170, 137, 0.22);
+      color: #2e2e2e;
       font-size: clamp(15px, 3.5vw, 20px);
       font-weight: 850;
       line-height: 1.4;
       text-align: center;
       word-break: break-word;
+      box-shadow: 0 10px 28px rgba(73, 52, 18, 0.08);
     }
 
     .loading-debug.error {
-      background: rgba(127, 29, 29, 0.26);
-      border-color: rgba(254, 202, 202, 0.35);
+      background: rgba(255, 245, 242, 0.9);
+      border-color: rgba(207, 112, 92, 0.28);
+      color: #743a31;
     }
 
     .section-debug {
@@ -731,15 +738,15 @@
     }
 
     .section-select-content {
-      width: min(920px, 100%);
+      width: min(1080px, 100%);
       height: 100%;
       min-height: 0;
       margin: 0 auto;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
       align-content: stretch;
-      gap: 10px;
-      padding: max(12px, env(safe-area-inset-top)) 16px max(12px, env(safe-area-inset-bottom));
+      gap: 14px;
+      padding: max(10px, env(safe-area-inset-top)) 40px max(10px, env(safe-area-inset-bottom));
     }
 
     .section-select-content.hidden {
@@ -748,7 +755,6 @@
 
     .section-select-title {
       display: grid;
-      gap: 8px;
       text-align: center;
     }
 
@@ -756,30 +762,35 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: clamp(24px, 3.8vw, 56px);
+      min-height: 74px;
+      padding: 0;
     }
 
     .section-logo {
-      width: min(220px, 38%);
-      height: 42px;
+      width: min(300px, 26vw);
+      height: clamp(48px, 6vw, 72px);
       max-height: none;
       object-fit: contain;
+      object-position: left center;
       flex: 0 0 auto;
     }
 
     .section-select-title h1 {
+      flex: 0 1 auto;
       min-width: 0;
       margin: 0;
-      color: #ffffff;
-      font-size: 34px;
+      color: var(--stage-navy);
+      font-size: clamp(42px, 4.2vw, 58px);
       font-weight: 950;
       line-height: 1.12;
       letter-spacing: 0;
+      white-space: nowrap;
     }
 
     .section-select-title p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.86);
+      color: var(--stage-muted);
       font-size: clamp(17px, 3.8vw, 22px);
       font-weight: 850;
       line-height: 1.35;
@@ -789,7 +800,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-template-rows: repeat(3, minmax(0, 1fr));
-      gap: 10px;
+      gap: 12px;
       min-height: 0;
     }
 
@@ -800,10 +811,11 @@
       align-items: stretch;
       gap: 8px;
       padding: 12px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.96);
-      color: #08275c;
-      box-shadow: 0 24px 60px rgba(0, 36, 102, 0.28);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(188, 170, 137, 0.16);
+      color: var(--stage-navy);
+      box-shadow: var(--stage-card-shadow);
       text-align: center;
       opacity: 0;
       transform: translateY(8px) scale(0.98);
@@ -823,9 +835,9 @@
       height: clamp(70px, 15vw, 96px);
       max-width: 78px;
       max-height: 78px;
-      border-radius: 16px;
+      border-radius: 20px;
       background: var(--section-soft, rgba(11, 94, 215, 0.12));
-      border: 3px solid var(--section-color, #0b5ed7);
+      border: 2px solid var(--section-color, #0b5ed7);
       color: var(--section-color, #0b5ed7);
     }
 
@@ -845,8 +857,8 @@
 
     .section-name {
       display: block;
-      color: #071f49;
-      font-size: 36px;
+      color: var(--stage-navy);
+      font-size: 32px;
       font-weight: 950;
       line-height: 1.06;
     }
@@ -854,204 +866,112 @@
     .section-count {
       display: block;
       margin-top: 6px;
-      color: #4b6384;
+      color: #5a5a5a;
       font-size: 17px;
       font-weight: 850;
       line-height: 1.2;
     }
 
+    .section-count strong {
+      color: inherit;
+      font-size: 1.08em;
+      font-weight: 950;
+    }
+
     .section-footer {
       position: relative;
-      display: grid;
-      gap: 4px;
-      min-height: 42px;
-      align-items: end;
-    }
-
-    .stage-color-button {
-      position: absolute;
-      left: max(12px, env(safe-area-inset-left));
-      bottom: max(12px, env(safe-area-inset-bottom));
-      z-index: 230;
-      min-height: 34px;
-      padding: 0 11px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: 0.02em;
-      box-shadow: 0 8px 20px rgba(7, 24, 54, 0.12);
-      backdrop-filter: blur(8px);
-    }
-
-    .stage-color-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 260;
-      display: none;
-      place-items: center;
-      padding: 18px;
-      background: rgba(7, 24, 54, 0.54);
-      backdrop-filter: blur(7px);
-    }
-
-    .stage-color-overlay.visible {
-      display: grid;
-    }
-
-    .stage-color-panel {
-      position: relative;
-      width: min(590px, 100%);
-      max-height: min(760px, calc(100svh - 36px));
-      overflow: auto;
-      display: grid;
-      gap: 15px;
-      padding: 22px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.98);
-      color: var(--ink);
-      box-shadow: 0 28px 74px rgba(0, 30, 78, 0.34);
-    }
-
-    .stage-color-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--blue-dark);
-      color: #ffffff;
-      font-size: 22px;
-      font-weight: 950;
-    }
-
-    .stage-color-title {
-      padding-right: 42px;
-      color: #08275c;
-      font-size: clamp(22px, 5vw, 28px);
-      font-weight: 950;
-      line-height: 1.2;
-    }
-
-    .stage-color-note {
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 750;
-      line-height: 1.45;
-    }
-
-    .stage-color-preview {
-      min-height: 84px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.14), transparent 34%),
-        linear-gradient(145deg, rgba(18, 47, 69, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%),
-        var(--stage-bg);
-      color: #ffffff;
-      font-size: 20px;
-      font-weight: 950;
-      box-shadow: inset 0 0 0 1px rgba(17, 36, 61, 0.08);
-    }
-
-    .stage-color-group {
-      display: grid;
-      gap: 8px;
-    }
-
-    .stage-color-group-title {
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 900;
-    }
-
-    .stage-color-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 9px;
-    }
-
-    .stage-color-swatch {
-      min-width: 0;
-      aspect-ratio: 1;
-      display: grid;
-      place-items: end center;
-      padding: 6px 3px;
-      border-radius: 14px;
-      border: 3px solid transparent;
-      background: var(--swatch-color);
-      color: #ffffff;
-      font-size: 10px;
-      font-weight: 900;
-      text-shadow: 0 1px 3px rgba(7, 24, 54, 0.62);
-      transition: transform 150ms ease, border-color 150ms ease;
-    }
-
-    .stage-color-swatch.selected {
-      border-color: #08275c;
-      transform: translateY(-3px);
-    }
-
-    .stage-color-custom {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      min-height: 58px;
-      padding: 8px 10px 8px 14px;
-      border-radius: 16px;
-      background: #eef4ff;
-      color: #08275c;
-      font-size: 15px;
-      font-weight: 900;
-    }
-
-    .stage-color-input {
-      width: 78px;
-      height: 42px;
-      padding: 3px;
-      border: 1px solid rgba(17, 36, 61, 0.16);
-      border-radius: 11px;
-      background: #ffffff;
-      cursor: pointer;
+      gap: 18px;
+      min-height: 72px;
+      padding: 12px 54px 12px 24px;
+      border-radius: 24px 24px 0 0;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(188, 170, 137, 0.18);
+      box-shadow: 0 -8px 24px rgba(73, 52, 18, 0.07);
+      backdrop-filter: blur(8px);
     }
 
     .partner-hospitals {
-      max-width: calc(100% - 46px);
-      margin-bottom: 38px;
-      color: rgba(255, 255, 255, 0.66);
-      font-size: 13px;
-      font-weight: 750;
-      line-height: 1.35;
-      text-align: center;
-      justify-self: center;
+      flex: 1 1 58%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      color: #2e2e2e;
+      font-size: clamp(15px, 1.65vw, 19px);
+      font-weight: 800;
+      line-height: 1.55;
+      text-align: left;
+    }
+
+    .partner-hospitals::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      background: #2f9663;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M9 2h6v5h5v15H4V7h5V2Zm2 2v5H6v11h4v-4h4v4h4V9h-5V4h-2Zm0 8h2v2h-2v-2ZM7 11h2v2H7v-2Zm8 0h2v2h-2v-2ZM7 15h2v2H7v-2Zm8 0h2v2h-2v-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M9 2h6v5h5v15H4V7h5V2Zm2 2v5H6v11h4v-4h4v4h4V9h-5V4h-2Zm0 8h2v2h-2v-2ZM7 11h2v2H7v-2Zm8 0h2v2h-2v-2ZM7 15h2v2H7v-2Zm8 0h2v2h-2v-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .section-debug {
+      flex: 0 1 38%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+      padding-right: 18px;
+      border-right: 1px solid rgba(108, 94, 72, 0.18);
+      color: #2e2e2e;
+      font-size: clamp(15px, 1.65vw, 19px);
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    .section-debug::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      background: #2f9663;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Zm0 11.2A3.2 3.2 0 1 1 12 6.8a3.2 3.2 0 0 1 0 6.4Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 2a8 8 0 0 0-8 8c0 5.4 8 12 8 12s8-6.6 8-12a8 8 0 0 0-8-8Zm0 11.2A3.2 3.2 0 1 1 12 6.8a3.2 3.2 0 0 1 0 6.4Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .section-debug.error {
+      color: #5e3535;
     }
 
     .demo-gps-button {
       position: absolute;
-      right: 0;
-      bottom: 0;
-      display: grid;
-      place-items: center;
+      right: 14px;
+      bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 22px;
       height: 22px;
+      padding: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: rgba(255, 255, 255, 0.46);
+      background: rgba(47, 150, 99, 0.08);
+      border: 1px solid rgba(47, 150, 99, 0.2);
+      color: rgba(47, 150, 99, 0.72);
+      line-height: 1;
       box-shadow: none;
     }
 
     .demo-gps-button svg {
-      width: 11px;
-      height: 11px;
-      stroke-width: 2.2;
+      display: block;
+      flex: 0 0 auto;
+      width: 13px;
+      height: 13px;
+      margin: 0;
+      overflow: visible;
+      stroke-width: 2;
     }
 
     .demo-gps-panel {
@@ -1243,63 +1163,71 @@
       .section-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-template-rows: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+        gap: 12px 30px;
       }
 
       .section-select-title h1 {
-        font-size: clamp(52px, 4.1vw, 76px);
+        font-size: clamp(44px, 4vw, 56px);
       }
 
       .section-logo {
         width: min(280px, 22vw);
-        height: clamp(44px, 3.5vw, 62px);
+        height: clamp(54px, 4.5vw, 72px);
       }
 
       .section-button {
-        padding: 22px;
-        border-radius: 30px;
+        padding: 20px 24px;
+        border-radius: 18px;
       }
 
       .section-icon {
-        width: clamp(86px, 7vw, 112px);
-        height: clamp(86px, 7vw, 112px);
+        width: clamp(96px, 8vw, 124px);
+        height: clamp(96px, 8vw, 124px);
         max-width: none;
         max-height: none;
-        border-radius: 22px;
+        border-radius: 24px;
       }
 
       .section-icon .section-svg {
-        width: clamp(48px, 4.3vw, 66px);
-        height: clamp(48px, 4.3vw, 66px);
+        width: clamp(56px, 4.7vw, 74px);
+        height: clamp(56px, 4.7vw, 74px);
       }
 
       .section-name {
-        font-size: clamp(52px, 4vw, 72px);
+        font-size: clamp(40px, 3.6vw, 54px);
       }
 
       .section-count {
-        font-size: clamp(24px, 1.8vw, 34px);
+        font-size: clamp(20px, 1.55vw, 26px);
       }
     }
 
     @media (max-width: 560px) {
       .section-title-row {
         flex-direction: column;
-        gap: 5px;
+        align-items: flex-start;
+        gap: 6px;
+        min-height: 0;
+        padding: 0;
       }
 
       .section-logo {
-        width: 168px;
-        height: 36px;
+        width: 176px;
+        height: 46px;
       }
 
       .section-select-title h1 {
-        font-size: 34px;
+        align-self: center;
+        font-size: clamp(29px, 8.7vw, 36px);
         line-height: 1.08;
       }
 
       .section-debug {
-        padding: 7px 9px;
+        min-width: 0;
+        width: 100%;
+        padding: 0 0 10px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(108, 94, 72, 0.18);
         font-size: 13px;
       }
 
@@ -1324,38 +1252,45 @@
       }
 
       .section-name {
-        font-size: 36px;
+        font-size: 30px;
       }
 
       .section-count {
         margin-top: 3px;
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .partner-hospitals {
-        max-width: calc(100% - 38px);
-        font-size: 11px;
+        width: 100%;
+        font-size: 12px;
       }
 
       .radius-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .stage-color-panel {
-        gap: 12px;
-        padding: 18px;
-        border-radius: 22px;
+      .section-select-content {
+        gap: 9px;
+        padding: max(8px, env(safe-area-inset-top)) 12px max(8px, env(safe-area-inset-bottom));
       }
 
-      .stage-color-grid {
-        gap: 6px;
+      .section-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        min-height: 0;
+        padding: 12px 44px 12px 14px;
+        border-radius: 18px 18px 0 0;
       }
 
-      .stage-color-swatch {
-        padding: 5px 1px;
-        border-width: 2px;
-        border-radius: 11px;
-        font-size: 9px;
+      .section-debug::before {
+        width: 28px;
+        height: 28px;
+      }
+
+      .partner-hospitals::before {
+        width: 32px;
+        height: 32px;
       }
     }
 
@@ -1367,7 +1302,7 @@
       }
 
       .section-logo {
-        height: 34px;
+        height: 38px;
       }
 
       .section-select-title h1 {
@@ -1396,17 +1331,23 @@
       }
 
       .section-name {
-        font-size: 34px;
+        font-size: 28px;
       }
 
       .section-count {
         margin-top: 2px;
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .partner-hospitals {
         font-size: 10px;
         line-height: 1.25;
+      }
+
+      .section-footer {
+        gap: 6px;
+        padding-top: 8px;
+        padding-bottom: 8px;
       }
     }
   </style>
@@ -1476,7 +1417,7 @@
             <path d="M16.2 15.2l1.4-.6"></path>
           </svg>
         </div>
-        <div class="loading-title">中榮社區醫學科資源地圖</div>
+        <div class="loading-title">中榮家醫-社區資源地圖</div>
         <div class="loading-subtitle">正在載入向量地圖與資源地點</div>
         <div id="loadingGeoDebug" class="loading-debug">定位狀態：正在檢查…</div>
       </div>
@@ -1484,7 +1425,7 @@
         <div class="section-select-title">
           <div class="section-title-row">
             <img class="section-logo" src="tcvgh_logo_transparent.png" alt="台中榮總">
-            <h1>請選 ICOPE 大項</h1>
+            <h1>請選擇 ICOPE 項目</h1>
           </div>
         </div>
         <div id="sectionGrid" class="section-grid"></div>
@@ -1508,28 +1449,6 @@
           </div>
         </div>
       </div>
-      <button id="stageColorBtn" class="stage-color-button" type="button">選色 <span id="stageColorButtonCode">#0B63CE</span></button>
-    </div>
-
-    <div id="stageColorOverlay" class="stage-color-overlay" aria-hidden="true">
-      <div class="stage-color-panel" role="dialog" aria-modal="true" aria-labelledby="stageColorTitle">
-        <button id="stageColorClose" class="stage-color-close" type="button" aria-label="關閉底色選單">×</button>
-        <div id="stageColorTitle" class="stage-color-title">測試 step 1、2 柔和底色</div>
-        <div class="stage-color-note">點選色票或使用調色盤，畫面會立即預覽並保留選擇。</div>
-        <div class="stage-color-preview">目前底色 <span id="stageColorPreviewCode">#0B63CE</span></div>
-        <div class="stage-color-group">
-          <div class="stage-color-group-title">藍色</div>
-          <div id="stageBlueColorGrid" class="stage-color-grid"></div>
-        </div>
-        <div class="stage-color-group">
-          <div class="stage-color-group-title">灰色</div>
-          <div id="stageGrayColorGrid" class="stage-color-grid"></div>
-        </div>
-        <label class="stage-color-custom" for="stageCustomColor">
-          <span>自訂調色盤 <span id="stageCustomColorCode">#0B63CE</span></span>
-          <input id="stageCustomColor" class="stage-color-input" type="color" value="#0b63ce">
-        </label>
-      </div>
     </div>
   </div>
 
@@ -1540,12 +1459,6 @@
     const ICOPE_SECTION_JSON_URL = 'ICOPE評估大項.json';
     let SEARCH_RADIUS_KM = 2;
     const SEARCH_RADII = [1, 2, 3, 5, 10];
-    const STAGE_COLOR_STORAGE_KEY = 'healthMapStageBackgroundColor';
-    const DEFAULT_STAGE_COLOR = '#0B63CE';
-    const STAGE_COLOR_GROUPS = {
-      blue: ['#0B63CE', '#0B5ED7', '#007BFF', '#1687E8', '#19A5FF'],
-      gray: ['#657786', '#7A8B99', '#91A0AA', '#AAB5BD', '#C1C9CF'],
-    };
     const DEMO_LOCATIONS = [
       { name: '台中榮總', lat: 24.18464393979438, lng: 120.60447940893295 },
       { name: '彩虹眷村', lat: 24.134062726580524, lng: 120.60991915154354 },
@@ -1558,12 +1471,12 @@
     const HOME_CENTER = [120.648, 24.186];
     const HOME_ZOOM = 11;
     const SECTION_META = {
-      認知: { icon: 'cognition', color: '#4F46E5' },
-      憂鬱: { icon: 'mood', color: '#CC79A7' },
-      行動: { icon: 'mobility', color: '#0072B2' },
-      營養: { icon: 'nutrition', color: '#E69F00' },
-      聽力: { icon: 'hearing', color: '#0F766E' },
-      視力: { icon: 'vision', color: '#7C3AED' },
+      認知: { icon: 'cognition', color: '#6F40B6' },
+      憂鬱: { icon: 'mood', color: '#ED5D78' },
+      行動: { icon: 'mobility', color: '#226CB7' },
+      營養: { icon: 'nutrition', color: '#EFA400' },
+      聽力: { icon: 'hearing', color: '#34945F' },
+      視力: { icon: 'vision', color: '#6E3DB4' },
     };
     const DEFAULT_CATEGORY_COLORS = [
       '#0072B2',
@@ -1689,87 +1602,7 @@
       });
       document.getElementById('demoGpsBtn').addEventListener('click', toggleDemoGpsPanel);
       document.getElementById('demoGpsClose').addEventListener('click', hideDemoGpsPanel);
-      document.getElementById('stageColorBtn').addEventListener('click', showStageColorSelect);
-      document.getElementById('stageColorClose').addEventListener('click', hideStageColorSelect);
-      document.getElementById('stageColorOverlay').addEventListener('click', function (event) {
-        if (event.target === event.currentTarget) {
-          hideStageColorSelect();
-        }
-      });
-      document.getElementById('stageCustomColor').addEventListener('input', function (event) {
-        setStageBackgroundColor(event.target.value, true);
-      });
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-          hideStageColorSelect();
-        }
-      });
       renderDemoGpsOptions();
-      initStageColorPicker();
-    }
-
-    function initStageColorPicker() {
-      renderStageColorSwatches('stageBlueColorGrid', STAGE_COLOR_GROUPS.blue);
-      renderStageColorSwatches('stageGrayColorGrid', STAGE_COLOR_GROUPS.gray);
-      setStageBackgroundColor(
-        normalizeHexColor(window.localStorage.getItem(STAGE_COLOR_STORAGE_KEY)) || DEFAULT_STAGE_COLOR,
-        false
-      );
-    }
-
-    function renderStageColorSwatches(containerId, colors) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = colors.map(function (color) {
-        return (
-          '<button class="stage-color-swatch" type="button" data-stage-color="' + color + '"' +
-          ' style="--swatch-color:' + color + ';" aria-label="套用底色 ' + color + '">' +
-          color +
-          '</button>'
-        );
-      }).join('');
-
-      container.querySelectorAll('.stage-color-swatch').forEach(function (button) {
-        button.addEventListener('click', function () {
-          setStageBackgroundColor(button.getAttribute('data-stage-color'), true);
-        });
-      });
-    }
-
-    function showStageColorSelect() {
-      const overlay = document.getElementById('stageColorOverlay');
-      overlay.classList.add('visible');
-      overlay.setAttribute('aria-hidden', 'false');
-    }
-
-    function hideStageColorSelect() {
-      const overlay = document.getElementById('stageColorOverlay');
-      if (!overlay) {
-        return;
-      }
-      overlay.classList.remove('visible');
-      overlay.setAttribute('aria-hidden', 'true');
-    }
-
-    function setStageBackgroundColor(color, shouldPersist) {
-      const normalized = normalizeHexColor(color) || DEFAULT_STAGE_COLOR;
-      document.documentElement.style.setProperty('--stage-bg', normalized);
-      document.getElementById('stageColorButtonCode').textContent = normalized;
-      document.getElementById('stageColorPreviewCode').textContent = normalized;
-      document.getElementById('stageCustomColorCode').textContent = normalized;
-      document.getElementById('stageCustomColor').value = normalized.toLowerCase();
-      document.querySelectorAll('.stage-color-swatch').forEach(function (button) {
-        const isSelected = button.getAttribute('data-stage-color') === normalized;
-        button.classList.toggle('selected', isSelected);
-        button.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
-      });
-      if (shouldPersist) {
-        window.localStorage.setItem(STAGE_COLOR_STORAGE_KEY, normalized);
-      }
-    }
-
-    function normalizeHexColor(color) {
-      const normalized = String(color || '').trim().toUpperCase();
-      return /^#[0-9A-F]{6}$/.test(normalized) ? normalized : '';
     }
 
     function reduceBasemapClutter() {
@@ -2023,7 +1856,7 @@
           '<span class="section-icon" aria-hidden="true">' + renderSectionIcon(meta.icon, 'section-svg') + '</span>' +
           '<span>' +
           '<span class="section-name">' + escapeHtml(sectionName) + '</span>' +
-          '<span class="section-count">' + count + ' 個相關地點</span>' +
+          '<span class="section-count"><strong>' + count + '</strong> 個相關地點</span>' +
           '</span>' +
           '</button>'
         );
@@ -2728,10 +2561,6 @@
       collapsedButton.setAttribute('aria-expanded', mode === 'collapsed' ? 'false' : 'true');
       credit.classList.toggle('collapsed', mode === 'collapsed');
       credit.classList.toggle('hidden', mode === 'expanded');
-
-      if (mode !== 'expanded' && !suppressAutoCenter) {
-        scheduleAutoCenterSearch();
-      }
     }
 
     function updateHeaderMeta(text) {
