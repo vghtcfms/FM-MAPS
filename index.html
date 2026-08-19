@@ -1490,31 +1490,48 @@
       視力: { icon: 'vision', color: '#6E3DB4' },
     };
     const DEFAULT_CATEGORY_COLORS = [
-      '#0072B2',
-      '#D55E00',
-      '#009E73',
-      '#7C3AED',
-      '#CC79A7',
+      // 醫療院所：橘黃系
+      '#D97706',
+      '#EA580C',
+      '#F59E0B',
+      '#B45309',
+    
+      // 社會 / 社區支援：青綠系
       '#0F766E',
-      '#E69F00',
-      '#4338CA',
-      '#1D4ED8',
+      '#059669',
+      '#0D9488',
+      '#047857',
+    
+      // 健康生活：藍色系
+      '#2563EB',
+      '#0284C7',
       '#0369A1',
       '#4F46E5',
-      '#A16207',
     ];
+    
     const CATEGORY_ICON_RULES = [
-      { pattern: '心理諮商', icon: 'counseling', label: '諮商', color: '#CC79A7' },
-      { pattern: '心理衛生', icon: 'mental-health', label: '衛生', color: '#7C3AED' },
-      { pattern: '醫院', icon: 'hospital', label: '醫院', color: '#D55E00' },
-      { pattern: '診所', icon: 'clinic', label: '診所', color: '#0072B2' },
+      // ─────────────────────────
+      // 醫療院所｜橘黃色系
+      // ─────────────────────────
+      { pattern: '心理諮商', icon: 'counseling', label: '諮商', color: '#F59E0B' },
+      { pattern: '醫院', icon: 'hospital', label: '醫院', color: '#EA580C' },
+      { pattern: '診所', icon: 'clinic', label: '診所', color: '#D97706' },
+    
+      // ─────────────────────────
+      // 社會 / 社區支援｜青綠色系
+      // ─────────────────────────
+      { pattern: '心理衛生', icon: 'mental-health', label: '衛生', color: '#0D9488' },
       { pattern: '活動中心', icon: 'community', label: '活動', color: '#0F766E' },
-      { pattern: '據點', icon: 'pin', label: '據點', color: '#009E73' },
+      { pattern: '據點', icon: 'pin', label: '據點', color: '#059669' },
+    
+      // ─────────────────────────
+      // 健康生活｜藍色系
+      // ─────────────────────────
       { pattern: '公園', icon: 'park', label: '公園', color: '#0284C7' },
       { pattern: '步道', icon: 'park', label: '步道', color: '#0369A1' },
-      { pattern: '運動', icon: 'activity', label: '運動', color: '#4338CA' },
-      { pattern: '休閒', icon: 'leisure', label: '休閒', color: '#E69F00' },
-      { pattern: '娛樂', icon: 'leisure', label: '娛樂', color: '#A16207' },
+      { pattern: '運動', icon: 'activity', label: '運動', color: '#2563EB' },
+      { pattern: '休閒', icon: 'leisure', label: '休閒', color: '#1D4ED8' },
+      { pattern: '娛樂', icon: 'leisure', label: '娛樂', color: '#1D4ED8' },
       { pattern: '圖書館', icon: 'library', label: '圖書', color: '#4F46E5' },
     ];
     const ICON_SVGS = {
