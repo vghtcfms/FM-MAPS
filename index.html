@@ -88,6 +88,10 @@
       isolation: isolate;
     }
 
+    .app-header {
+      padding-right: calc(3 * clamp(18px, 4vw, 22px) + 50px);
+    }
+
     .app-header::before {
       content: "";
       position: absolute;
@@ -98,6 +102,12 @@
       height: calc(116px + max(12px, env(safe-area-inset-top)));
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.68) 32%, rgba(255, 255, 255, 0.28) 68%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
+    }
+
+    .home-button,
+    .radius-fab {
+      width: calc(3em + 40px);
+      height: 54px;
     }
 
     .home-button {
@@ -154,16 +164,16 @@
       display: none;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 3px;
       min-width: 0;
       min-height: 0;
-      height: 38px;
-      padding: 0 10px;
+      height: 54px;
+      padding: 0 4px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(7, 63, 158, 0.16);
       color: var(--blue-dark);
-      font-size: 13px;
+      font-size: clamp(18px, 4vw, 22px);
       font-weight: 950;
       box-shadow: 0 6px 14px rgba(7, 43, 105, 0.1);
       white-space: nowrap;
